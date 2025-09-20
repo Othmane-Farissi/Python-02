@@ -1,10 +1,11 @@
-import pandas as pd 
+import pandas as pd:
 
-def load_csv(path : str) :
+
+def load(path: str):
     try:
         dt = pd.read_csv(path)
-        print(f"Loading dataset of dimensions {data.shape}")
-
+        print(f"Loading dataset of dimensions: {dt.shape}")
         return dt
+
     except Exception:
         return None
