@@ -1,11 +1,21 @@
-import pandas as pd:
+import pandas as pd
 
 
 def load(path: str):
+    """
+    Load a CSV file into a pandas DataFrame.
+
+    Args:
+        path (str): Path to the CSV file.
+
+    Returns:
+        pd.DataFrame: The loaded dataset.
+    """
     try:
         dt = pd.read_csv(path)
-        print(f"Loading dataset of dimensions: {dt.shape}")
+        if dt is None:
+            raise ValueError("Failed to load dataset")
         return dt
 
-    except Exception:
-        return None
+    except ValueError as e:
+        print(f"ERROR:{e}")
